@@ -43,3 +43,25 @@ export function timeout(ms: number, token = CancellationToken.None): Promise<voi
     });
     return deferred.promise;
 }
+
+/**
+ * Wrap a promise to know synchronously if it is finished or not.
+ */
+export class PromiseTask<T> {
+
+    /** Promise that will resolve when finished. */
+    readonly promise: Promise<T>;
+
+    finished = false;
+
+    constructor(promise: Promise<T>) {
+        this.promise = promise.then(value => {
+            this.finished = true;
+            return value;
+        }, error => {
+            this.finished = true;
+            throw error;
+        });
+    }
+
+}
