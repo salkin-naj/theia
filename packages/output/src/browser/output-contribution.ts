@@ -61,6 +61,11 @@ export namespace OutputCommands {
     export const CLEAR__WIDGET: Command = {
         id: 'output:widget:clear',
         category: OUTPUT_CATEGORY,
+    };
+
+    export const CLEAR__WIDGET_TOOLBAR: Command = {
+        id: 'output:widget:toolbar:clear',
+        category: OUTPUT_CATEGORY,
         iconClass: 'clear-all'
     };
 
@@ -122,6 +127,9 @@ export class OutputContribution extends AbstractViewContribution<OutputWidget> i
     registerCommands(registry: CommandRegistry): void {
         super.registerCommands(registry);
         registry.registerCommand(OutputCommands.CLEAR__WIDGET, {
+            execute: () => this.widget.then(widget => widget.clear())
+        });
+        registry.registerCommand(OutputCommands.CLEAR__WIDGET_TOOLBAR, {
             isEnabled: widget => this.withWidget(widget),
             isVisible: widget => this.withWidget(widget),
             execute: () => this.widget.then(widget => widget.clear())
