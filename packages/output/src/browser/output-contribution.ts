@@ -61,11 +61,6 @@ export namespace OutputCommands {
     export const CLEAR__WIDGET: Command = {
         id: 'output:widget:clear',
         category: OUTPUT_CATEGORY,
-    };
-
-    export const CLEAR__WIDGET_TOOLBAR: Command = {
-        id: 'output:widget:toolbar:clear',
-        category: OUTPUT_CATEGORY,
         iconClass: 'clear-all'
     };
 
