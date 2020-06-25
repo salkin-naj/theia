@@ -58,8 +58,8 @@ export class OutputToolbarContribution implements TabBarToolbarContribution {
             onDidChange: this.onChannelsChanged
         });
         toolbarRegistry.registerItem({
-            id: OutputCommands.CLEAR__WIDGET_TOOLBAR.id,
-            command: OutputCommands.CLEAR__WIDGET_TOOLBAR.id,
+            id: OutputCommands.CLEAR__WIDGET.id,
+            command: OutputCommands.CLEAR__WIDGET.id,
             tooltip: 'Clear Output',
             priority: 1,
         });
